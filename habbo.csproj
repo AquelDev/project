@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64931E94-66B3-49E9-BCD2-2B3B9B7D41D9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>habbo</RootNamespace>
+    <AssemblyName>habbo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mysql.data">
+      <HintPath>..\..\..\..\Desktop\anonydev-mango-5bf872e7009a\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cryptography\BigInteger.cs" />
+    <Compile Include="Cryptography\DiffieHellman.cs" />
+    <Compile Include="Cryptography\Keys\RSAKeys.cs" />
+    <Compile Include="Cryptography\Protocol.cs" />
+    <Compile Include="Cryptography\RC4.cs" />
+    <Compile Include="Cryptography\RSA.cs" />
+    <Compile Include="Habbo\Characters\Character.cs" />
+    <Compile Include="Habbo\Characters\CharacterManager.cs" />
+    <Compile Include="Kernel\Commons\DictionaryAdapter.cs" />
+    <Compile Include="Kernel\Commons\HabboEncoding.cs" />
+    <Compile Include="Kernel\Commons\RowAdapter.cs" />
+    <Compile Include="Kernel\Commons\XMLSystem.cs" />
+    <Compile Include="Kernel\IO\ConsoleSystem.cs" />
+    <Compile Include="Kernel\IO\DynamicConsoleLine.cs" />
+    <Compile Include="Kernel\IO\VersionInfo.cs" />
+    <Compile Include="Kernel\Network\BufferPool.cs" />
+    <Compile Include="Kernel\Network\MusSocket.cs" />
+    <Compile Include="Kernel\Network\Session.cs" />
+    <Compile Include="Kernel\Network\SocketSystem.cs" />
+    <Compile Include="Kernel\Network\TPool.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\games\GameListParser.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\AuthenticationOKEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\GenerateSecretKeyMessageEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\InitCryptoMessageEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\ReadReleaseMessageEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\UNK.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\UnknownEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\handshake\UserObjectEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\incoming\user\ProfileEvent.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\outgoing\handshake\InitCryptoMessageComposer.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\outgoing\handshake\SecretKeyComposer.cs" />
+    <Compile Include="Kernel\Packets\com\sulake\habbo\communication\messages\outgoing\user\ShowProfileComposer.cs" />
+    <Compile Include="Kernel\Packets\Headers\MessageComposerIds.cs" />
+    <Compile Include="Kernel\Packets\Headers\MessageEventIds.cs" />
+    <Compile Include="Kernel\Packets\Interfaces\IMessageEvent.cs" />
+    <Compile Include="Kernel\Packets\Messages\ServerPacket.cs" />
+    <Compile Include="Kernel\Packets\Messages\ClientPacket.cs" />
+    <Compile Include="Kernel\Packets\PacketManager.cs" />
+    <Compile Include="Kernel\Pathfinding\BlockCalculator.cs" />
+    <Compile Include="Kernel\Pathfinding\BlockNode.cs" />
+    <Compile Include="Kernel\Storage\MySQLManager.cs" />
+    <Compile Include="Kernel\Storage\Query.cs" />
+    <Compile Include="Kernel\Storage\QueryObject.cs" />
+    <Compile Include="Kernel\Storage\QueryStream.cs" />
+    <Compile Include="Kernel\Storage\Querys\CastCharacterQuery.cs" />
+    <Compile Include="Kernel\Storage\Querys\CharacterTicketQuery.cs" />
+    <Compile Include="Kernel\Storage\Querys\OnlineCountUpdate.cs" />
+    <Compile Include="Kernel\Storage\QueryType.cs" />
+    <Compile Include="System.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
